@@ -8,6 +8,7 @@ require 'dev_training_bot'
 
 service = GoogleDriveService.new
 content = service.export_file(ENV['FILE_ID'], 'text/plain', download_dest: StringIO.new)
+topics = content.string[/Open Topics\s+(\*.*\r\n)+/].scan(/(?<=\* ).*(?=\r)/)
 
 require 'pry'
 Pry.start
