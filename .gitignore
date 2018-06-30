@@ -8,6 +8,7 @@
 /tmp/
 
 # rspec failure tracking
+.env
 .rspec_status
 client_secrets.json
 token.yaml
