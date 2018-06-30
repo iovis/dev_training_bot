@@ -6,9 +6,7 @@ require 'dev_training_bot'
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
-service = GoogleDriveService.new
-content = service.export_file(ENV['FILE_ID'], 'text/plain', download_dest: StringIO.new)
-topics = content.string[/Open Topics\s+(\*.*\r\n)+/].scan(/(?<=\* ).*(?=\r)/)
+topics = TopicsService.new(GoogleDriveService.new).topics
 
 require 'pry'
 Pry.start

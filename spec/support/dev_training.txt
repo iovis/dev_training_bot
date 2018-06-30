@@ -1,0 +1,161 @@
+﻿Weekly Dev Learning
+
+
+This page is supposed to be the agenda tool for our weekly Thursday learning meetings. Feel free to add anything you want to discuss. Including, but not limited to:
+* Cool code refactoring you did and want to show off
+* Not so cool code refactoring you did and want to ask about suggestions
+* A plugin you found and want to show
+* Code you wrote but have a feeling could use some improvements
+* some piece of software only you interact with and want to show to your fellow colleagues
+* etc.
+The format is supposed to be very open, feel free to add anything between 2 or 50 minutes.
+Please add an entry for the day, add your name and a headline.
+
+
+Open Topics
+* David: Browser rendering optimization: how to get silky smooth animations
+* David: The JS Event Loop: what nightmares are made of
+* David: RxJS: Observing the death of Promises
+* David: Intro to vim
+* Mo: Ansible
+* Julio: CSI:RMD Reading error reports like a $BOSS
+* Anthony: SAML
+* Jimmi: Gang of Four Design Patterns in Ruby (possibly in different parts)
+
+
+Requested Topics
+* 
+
+2018-07-06
+* Julio: How to make your test suite go faster
+
+
+Video: 
+
+
+Attendance: 
+
+
+2018-06-28
+* Vanessa: How to migrate a DB and don’t die trying
+
+
+Video:
+
+
+Attendance: Dave, David, Jimmi, Joscelyn, Mo, Sri, Mo, Tim
+
+
+2018-06-22
+* David: Git Good: Become a git ninja
+
+
+Video: 
+
+
+Attendance: Alden, Anthony, Christian, Dave, David, Jimmi, Mo, Sri, Tim, Vanessa
+
+
+
+
+2018-05-25
+* Tim: Memcached basics
+
+
+Slides: 
+Video: 
+
+
+Attendance: 
+
+
+2018-05-18
+* David: Can’t Touch This: Event Capture, Propagation and Bubbling
+
+
+Slides: https://drive.google.com/open?id=1bZS5RA9Xa_rRlicj21vH7Py2K45Z2gIKZZdpw915_0s
+Video: https://drive.google.com/open?id=1wlZd0GIyDERyNaa8f70Fmqbya2c2OVI-
+
+
+Attendance: Vanessa, Jimmi, Anthony, Dave, Tim, David, Julio, Mo
+
+
+2018-05-04
+* Tim: Roadmaps Roundtable
+https://www.hbs.edu/faculty/Pages/profile.aspx?facId=873098
+2x2, 1 to 6, 1 to 8, meetings, cascade down, confidence future
+* David: Critical rendering path: how the browser builds a page and optimizing first paint
+        Slides: https://drive.google.com/open?id=1SllyeilKU_UBkrmEyZSURsBfP2NDjVeOPuhSo_FqDrs
+
+
+Attendance: Vanessa, Jimmi, Anthony, Alden, Tim, David, Julio, Mo
+
+
+2018-04-12
+   * David: GraphQL ❤️ Rails
+
+
+Attendance: Jimmi, Mo, Tim, Anthony, Alden, Vanessa, Julio, David
+2018-04-04
+   * Anthony: SQS
+
+
+Attendance: 
+
+
+2018-03-22
+   * David: ActiveRecord enums
+
+
+Attendance: Vanessa, Tim Anthony, Julio, David
+
+
+2018-03-15
+   * Vanessa: VPCs and control access to your instances
+   * Tim: OKRs
+
+
+Attendance: Vanessa, Yanbo, Alden, David, Julio, Tim
+
+
+2018-03-08
+   * David: Realtime Databases
+Attendance: Tim, David, Julio, Yanbo, Vanessa, Alden
+
+
+2018-02-29
+   * Tim: Symbols, Strings, and freezing stuff
+   * Tim: Progress of our migration to Aurora
+Attendance: Vanessa, Alden, Yanbo, Tim
+
+
+2018-02-22
+   * Julio: getting our feet wet in Rails 5 and Ruby 2.5
+Attendance: Tim, Julio, Yanbo, Vanessa
+
+
+2018-02-15
+   * David: Benchmarking and profiling Ruby
+Attendance: Tim, David, Julio, Yanbo, Vanessa, Alden
+
+
+2018-02-01
+   * Tim: AWS Overview continued
+Attendance: Yanbo, David, Julio, Tim, Vanessa
+2018-01-25
+   * Tim: AWS Overview
+Attendance: David, Vanessa, Yanbo, Julio, Alden, Tim
+
+
+2018-01-18
+   * Vanessa: Webmock
+Attendance: Vanessa, Yanbo, David, Julio, Pablo, Tim, Carlos
+
+
+2018-01-11
+   * Pablo: Serverless development (Lambda) (Slides)
+Production example 
+Attendance: Vanessa, Alden, Yanbo, David, Julio, Pablo, Tim
+2018-01-04
+      * Tim: Introduction to this thing
+      * Tim: Indexes in Databases (Slides)
