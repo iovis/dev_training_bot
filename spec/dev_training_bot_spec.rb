@@ -1,4 +1,4 @@
-RSpec.describe DevTrainingBot do
+describe DevTrainingBot do
   it "has a version number" do
     expect(DevTrainingBot::VERSION).not_to be nil
   end
