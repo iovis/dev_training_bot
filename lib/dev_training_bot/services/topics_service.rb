@@ -3,6 +3,10 @@ class TopicsService
     @drive_service = drive_service
   end
 
+  def to_s
+    "\"#{topics.join('" "')}\""
+  end
+
   def content
     @content ||= @drive_service.export_file(ENV['FILE_ID'], 'text/plain', download_dest: StringIO.new)
   end
