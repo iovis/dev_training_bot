@@ -1,16 +1,18 @@
 describe DevTrainingBot::TopicService do
   let(:file)    { StringIO.new(File.read('spec/support/dev_training.txt')) }
   let(:service) { instance_double 'GoogleDriveService' }
-  let(:topics)  {[
-    'Anthony: SAML',
-    'David: Browser rendering optimization: how to get silky smooth animations',
-    'David: Intro to vim',
-    'David: RxJS: Observing the death of Promises',
-    'David: The JS Event Loop: what nightmares are made of',
-    'Jimmi: Gang of Four Design Patterns in Ruby (possibly in different parts)',
-    'Julio: CSI:RMD Reading error reports like a $BOSS',
-    'Mo: Ansible'
-  ]}
+  let(:topics) do
+    convert_to_topics [
+      'Anthony: SAML',
+      'David: Browser rendering optimization: how to get silky smooth animations',
+      'David: Intro to vim',
+      'David: RxJS: Observing the death of Promises',
+      'David: The JS Event Loop: what nightmares are made of',
+      'Jimmi: Gang of Four Design Patterns in Ruby (possibly in different parts)',
+      'Julio: CSI:RMD Reading error reports like a $BOSS',
+      'Mo: Ansible'
+    ]
+  end
 
   subject { described_class.new(service) }
 
@@ -23,8 +25,18 @@ describe DevTrainingBot::TopicService do
 
   describe '#to_poll' do
     it 'returns the topics in the poll format' do
-      allow(subject).to receive(:topics).and_return(['first item', 'second item'])
-      expect(subject.to_poll).to eq '"first item" "second item"'
+      allow(subject).to receive(:topics).and_return(
+        convert_to_topics([
+          'first item',
+          'second item'
+        ])
+      )
+
+      expect(subject.to_poll).to eq '"Unknown: first item" "Unknown: second item"'
     end
+  end
+
+  def convert_to_topics(list)
+    list.map { |topic| DevTrainingBot::Topic.parse(topic) }
   end
 end

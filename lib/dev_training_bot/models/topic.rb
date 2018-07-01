@@ -16,5 +16,9 @@ module DevTrainingBot
     def to_s
       "#{author}: #{title}"
     end
+
+    def ==(other)
+      author == other.author && title == other.title
+    end
   end
 end

@@ -30,7 +30,13 @@ module DevTrainingBot
     #
     # @return [string]
     def topics
-      @topics ||= content.string[OPEN_TOPICS_REGEX].scan(TOPIC_ITEM_REGEX).sort
+      @topics ||= import.map { |topic| Topic.parse(topic) }
+    end
+
+    private
+
+    def import
+      content.string[OPEN_TOPICS_REGEX].scan(TOPIC_ITEM_REGEX).sort
     end
   end
 end
