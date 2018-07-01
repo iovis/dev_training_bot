@@ -14,11 +14,19 @@ module DevTrainingBot
     end
 
     def create_poll(topics)
+      return no_topics_available if topics.empty?
+
       next_friday = Chronic.parse('next friday').to_date
 
       @client.chat_command channel: ENV['SLACK_CHANNEL'],
                            command: '/poll',
                            text: "\"@here Vote for the next dev learning! [#{next_friday}]\" #{topics}"
+    end
+
+    def no_topics_available
+      @client.chat_postMessage channel: ENV['SLACK_CHANNEL'],
+                               text: '<!here> Please propose your topics for the next Dev Learning!',
+                               as_user: true
     end
 
     def link_doc
