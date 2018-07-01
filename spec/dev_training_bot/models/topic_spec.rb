@@ -16,5 +16,10 @@ describe DevTrainingBot::Topic do
                     'Julio: CSI:RMD Reading error reports like a $BOSS',
                     'CSI:RMD Reading error reports like a $BOSS',
                     'Julio'
+
+    it_behaves_like 'a topic parsing',
+                    'Gang of Four Design Patterns in Ruby (possibly in different parts)',
+                    'Gang of Four Design Patterns in Ruby (possibly in different parts)',
+                    'Unknown'
   end
 end

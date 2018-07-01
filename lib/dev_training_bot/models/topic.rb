@@ -1,6 +1,6 @@
 module DevTrainingBot
   class Topic
-    REGEX = /(?<author>.*?):\s*(?<title>.+)/
+    REGEX = /(?<author>.*?(?=:))?:?\s*(?<title>.+)/
 
     attr_accessor :title, :author
 
@@ -8,9 +8,9 @@ module DevTrainingBot
       topic.match(REGEX) { |matches| new(matches[:title], matches[:author]) }
     end
 
-    def initialize(title, author)
+    def initialize(title, author = 'Unknown')
       @title = title
-      @author = author
+      @author = author || 'Unknown'
     end
   end
 end
