@@ -7,6 +7,7 @@ class GoogleDriveService
   CLIENT_SECRETS_PATH = 'client_secrets.json'.freeze
   CREDENTIALS_PATH = 'token.yaml'.freeze
   SCOPE = Google::Apis::DriveV3::AUTH_DRIVE_READONLY
+  DOC_URL = "https://docs.google.com/document/d/#{ENV['FILE_ID']}".freeze
 
   extend Forwardable
 
