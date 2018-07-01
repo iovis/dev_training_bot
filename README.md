@@ -1,28 +1,40 @@
 # DevTrainingBot
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dev_training_bot`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+List, publish or export the Dev Training topics (made for RubiconMD).
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'dev_training_bot'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the gem:
 
     $ gem install dev_training_bot
 
+Turn on the [Drive API](https://developers.google.com/drive/api/v3/quickstart/ruby#prerequisites) and download your `client_secrets.json` file.
+
+Generate a [token](https://api.slack.com/custom-integrations/legacy-tokens) for your Slack user.
+**NOTE:** bots can't execute slash commands like `/poll`
+
+Configure the following environment variables:
+```sh
+CLIENT_SECRETS_PATH="$HOME/.client_secrets.json"
+FILE_ID=<Google Docs file id>
+SLACK_API_TOKEN=<your slack user token>
+SLACK_CHANNEL="#your_channel"
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ training
+
+Commands:
+  training help [COMMAND]  # Describe available commands or one specific command
+  training list            # Show the list of available topics
+  training open            # Open Dev Training document in your browser
+  training publish         # Send a poll to the configured channel
+  training save <file>     # Save Dev Training document to disk
+```
+
+**NOTE:** The command `save` accepts an optional `--format` parameter (see `training help save`)
 
 ## Development
 
@@ -32,7 +44,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dev_training_bot.
+Bug reports and pull requests are welcome on GitHub at https://github.com/iovis9/dev_training_bot.
 
 ## License
 
