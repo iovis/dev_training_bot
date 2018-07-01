@@ -3,7 +3,7 @@ class TopicsService
     @drive_service = drive_service
   end
 
-  def to_s
+  def to_poll
     "\"#{topics.join('" "')}\""
   end
 

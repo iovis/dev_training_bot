@@ -21,10 +21,10 @@ describe TopicsService do
     end
   end
 
-  describe '#to_s' do
+  describe '#to_poll' do
     it 'returns the topics in the poll format' do
       allow(subject).to receive(:topics).and_return(['first item', 'second item'])
-      expect(subject.to_s).to eq '"first item" "second item"'
+      expect(subject.to_poll).to eq '"first item" "second item"'
     end
   end
 end
