@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'dev_training_bot'
+
+topics = TopicsService.new(GoogleDriveService.new)
+slack_service = SlackService.new
+slack_service.create_poll(topics)
+puts 'Successfully created the poll!'
