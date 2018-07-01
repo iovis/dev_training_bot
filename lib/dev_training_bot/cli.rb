@@ -7,6 +7,13 @@ module DevTrainingBot
       true
     end
 
+    map %w[--version -v] => :version
+
+    desc 'version', 'Show version'
+    def version
+      say "v#{VERSION}"
+    end
+
     desc 'open', 'Open Dev Training document in your browser'
     def open
       Launchy.open GoogleDriveService::DOC_URL
