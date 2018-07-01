@@ -6,7 +6,9 @@ require 'dev_training_bot'
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
-topics = TopicsService.new(GoogleDriveService.new).topics
+topics = TopicsService.new(GoogleDriveService.new)
+slack_service = SlackService.new
+slack_service.create_poll(topics)
 
 require 'pry'
 Pry.start
