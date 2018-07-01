@@ -14,6 +14,7 @@ describe DevTrainingBot::Cli do
 
       expect(topic_service).to receive(:to_poll).and_return(poll_topics)
       expect(slack_service).to receive(:create_poll).with(poll_topics)
+      expect(slack_service).to receive(:link_doc).with(no_args)
 
       subject.publish
     end

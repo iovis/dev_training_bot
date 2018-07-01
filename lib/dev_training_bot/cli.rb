@@ -9,6 +9,7 @@ module DevTrainingBot
     desc 'publish', "Send a poll to the #{ENV['SLACK_CHANNEL']} channel"
     def publish
       slack_service.create_poll(topic_service.to_poll)
+      slack_service.link_doc
       say 'Successfully published the poll!', :green
     end
 
