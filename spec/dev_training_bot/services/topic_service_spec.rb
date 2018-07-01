@@ -1,6 +1,7 @@
 describe DevTrainingBot::TopicService do
-  let(:file)    { StringIO.new(File.read('spec/support/dev_training.txt')) }
-  let(:service) { instance_double 'GoogleDriveService' }
+  let(:file)       { StringIO.new(File.read('spec/support/dev_training.txt')) }
+  let(:empty_file) { StringIO.new(File.read('spec/support/dev_training_empty.txt')) }
+  let(:service)    { instance_double 'GoogleDriveService' }
   let(:topics) do
     convert_to_topics [
       'Anthony: SAML',
@@ -20,6 +21,22 @@ describe DevTrainingBot::TopicService do
     it 'should return the list of topics in order' do
       expect(service).to receive(:export_file).and_return(file)
       expect(subject.topics).to eq topics
+    end
+  end
+
+  describe '#empty?' do
+    context 'when there are topics available' do
+      it 'returns false' do
+        allow(service).to receive(:export_file).and_return(file)
+        is_expected.not_to be_empty
+      end
+    end
+
+    context 'when there are no topics available' do
+      it 'returns true' do
+        allow(service).to receive(:export_file).and_return(empty_file)
+        is_expected.to be_empty
+      end
     end
   end
 

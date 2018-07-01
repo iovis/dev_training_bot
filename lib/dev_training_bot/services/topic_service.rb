@@ -33,10 +33,16 @@ module DevTrainingBot
       @topics ||= import.map { |topic| Topic.parse(topic) }
     end
 
+    def empty?
+      topics.empty?
+    end
+
     private
 
     def import
-      content.string[OPEN_TOPICS_REGEX].scan(TOPIC_ITEM_REGEX).sort
+      list = content.string[OPEN_TOPICS_REGEX].scan(TOPIC_ITEM_REGEX)
+      return [] if list.all?(&:empty?)
+      list.sort
     end
   end
 end
