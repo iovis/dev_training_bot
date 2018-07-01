@@ -1,4 +1,4 @@
-describe TopicsService do
+describe DevTrainingBot::TopicService do
   let(:file)    { StringIO.new(File.read('spec/support/dev_training.txt')) }
   let(:service) { instance_double 'GoogleDriveService' }
   let(:topics)  {[
