@@ -31,6 +31,15 @@ module DevTrainingBot
       say 'Successfully published the poll!', :green
     end
 
+    desc 'list', 'Show the list of available topics'
+    def list
+      topics_table = topic_service.topics.map do |topic|
+        ['', set_color(topic.author, :blue), topic.title]
+      end
+
+      print_table topics_table
+    end
+
     private
 
     def drive_service
