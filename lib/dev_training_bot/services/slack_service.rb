@@ -18,7 +18,7 @@ module DevTrainingBot
 
       @client.chat_command channel: ENV['SLACK_CHANNEL'],
                            command: '/poll',
-                           text: "\"Vote for the next dev learning! [#{next_friday}]\" #{topics}"
+                           text: "\"@here Vote for the next dev learning! [#{next_friday}]\" #{topics}"
     end
 
     def link_doc
