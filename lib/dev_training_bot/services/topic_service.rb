@@ -1,5 +1,8 @@
 module DevTrainingBot
   class TopicService
+    OPEN_TOPICS_REGEX = /Open Topics\s+(\*.*\r\n)+/
+    TOPIC_ITEM_REGEX  = /(?<=\* ).*(?=\r)/
+
     def initialize(drive_service)
       @drive_service = drive_service
     end
@@ -27,7 +30,7 @@ module DevTrainingBot
     #
     # @return [string]
     def topics
-      @topics ||= content.string[/Open Topics\s+(\*.*\r\n)+/].scan(/(?<=\* ).*(?=\r)/).sort
+      @topics ||= content.string[OPEN_TOPICS_REGEX].scan(TOPIC_ITEM_REGEX).sort
     end
   end
 end
