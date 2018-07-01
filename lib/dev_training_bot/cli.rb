@@ -12,6 +12,12 @@ module DevTrainingBot
       Launchy.open GoogleDriveService::DOC_URL
     end
 
+    desc 'save <file>', 'Save Dev Training document to disk'
+    def save(file)
+      drive_service.export_file(ENV['FILE_ID'], 'text/plain', download_dest: file)
+      say 'Successfully saved the document!', :green
+    end
+
     desc 'publish', "Send a poll to the #{ENV['SLACK_CHANNEL']} channel"
     def publish
       slack_service.create_poll(topic_service.to_poll)
@@ -21,8 +27,12 @@ module DevTrainingBot
 
     private
 
+    def drive_service
+      @drive_service ||= GoogleDriveService.new
+    end
+
     def topic_service
-      @topic_service ||= TopicService.new(GoogleDriveService.new)
+      @topic_service ||= TopicService.new(drive_service)
     end
 
     def slack_service
