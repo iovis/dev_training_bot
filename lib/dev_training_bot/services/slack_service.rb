@@ -1,3 +1,4 @@
+require 'chronic'
 require 'slack-ruby-client'
 
 Slack.configure do |config|
@@ -12,8 +13,9 @@ class SlackService
   end
 
   def create_poll(topics)
+    next_friday = Chronic.parse('next friday').to_date
     @client.chat_command channel: ENV['SLACK_CHANNEL'],
                          command: '/poll',
-                         text: "\"Vote for the next dev learning!\" #{topics}"
+                         text: "\"Vote for the next dev learning! [#{next_friday}]\" #{topics}"
   end
 end
