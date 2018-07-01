@@ -41,15 +41,24 @@ describe DevTrainingBot::TopicService do
   end
 
   describe '#to_poll' do
-    it 'returns the topics in the poll format' do
-      allow(subject).to receive(:topics).and_return(
-        convert_to_topics([
-          'first item',
-          'second item'
-        ])
-      )
+    context 'when there are topics available' do
+      it 'returns the topics in the poll format' do
+        allow(subject).to receive(:topics).and_return(
+          convert_to_topics([
+            'first item',
+            'second item'
+          ])
+        )
 
-      expect(subject.to_poll).to eq '"Unknown: first item" "Unknown: second item"'
+        expect(subject.to_poll).to eq '"Unknown: first item" "Unknown: second item"'
+      end
+    end
+
+    context 'when there are no topics available' do
+      it 'returns an empty string' do
+        allow(service).to receive(:export_file).and_return(empty_file)
+        expect(subject.to_poll).to eq ''
+      end
     end
   end
 

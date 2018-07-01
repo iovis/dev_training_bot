@@ -8,6 +8,7 @@ module DevTrainingBot
     end
 
     def to_poll
+      return '' if empty?
       "\"#{topics.join('" "')}\""
     end
 
