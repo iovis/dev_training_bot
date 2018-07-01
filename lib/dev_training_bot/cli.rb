@@ -13,8 +13,14 @@ module DevTrainingBot
     end
 
     desc 'save <file>', 'Save Dev Training document to disk'
+    method_option :format,
+                  aliases: '-f',
+                  desc: 'Specify the format of the document',
+                  default: 'text',
+                  enum: GoogleDriveService.formats
     def save(file)
-      drive_service.export_file(ENV['FILE_ID'], 'text/plain', download_dest: file)
+      mime = GoogleDriveService.mime(options[:format])
+      drive_service.export_file(ENV['FILE_ID'], mime, download_dest: file)
       say 'Successfully saved the document!', :green
     end
 

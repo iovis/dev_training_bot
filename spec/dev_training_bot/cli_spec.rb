@@ -17,8 +17,12 @@ describe DevTrainingBot::Cli do
     end
 
     it 'saves the document' do
-      expect(drive_service).to receive(:export_file).with(ENV['FILE_ID'], 'text/plain', download_dest: 'dev_training.txt')
-      subject.save 'dev_training.txt'
+      filename = 'dev_training.pdf'
+
+      expect(drive_service).to receive(:export_file).with(ENV['FILE_ID'], 'application/pdf', download_dest: filename)
+
+      subject.options = { format: 'pdf' }
+      subject.save filename
     end
   end
 

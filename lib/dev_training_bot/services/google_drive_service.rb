@@ -9,12 +9,30 @@ module DevTrainingBot
     CREDENTIALS_PATH = 'token.yaml'.freeze
     SCOPE = Google::Apis::DriveV3::AUTH_DRIVE_READONLY
     DOC_URL = "https://docs.google.com/document/d/#{ENV['FILE_ID']}".freeze
+    FORMATS = {
+      'html'        => 'text/html',
+      'zip'         => 'application/zip',
+      'text'        => 'text/plain',
+      'rtf'         => 'application/rtf',
+      'open_office' => 'application/vnd.oasis.opendocument.text',
+      'pdf'         => 'application/pdf',
+      'word'        => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'epub'        => 'application/epub+zip'
+    }
 
     extend Forwardable
 
     def_delegators :@service, :export_file
 
     attr_reader :service
+
+    def self.formats
+      FORMATS.keys
+    end
+
+    def self.mime(format)
+      FORMATS[format]
+    end
 
     def initialize
       @service = Google::Apis::DriveV3::DriveService.new
