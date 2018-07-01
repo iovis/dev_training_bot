@@ -12,5 +12,9 @@ module DevTrainingBot
       @title = title
       @author = author || 'Unknown'
     end
+
+    def to_s
+      "#{author}: #{title}"
+    end
   end
 end
