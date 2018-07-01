@@ -2,6 +2,13 @@ describe DevTrainingBot::Cli do
   let(:topic_service) { instance_double 'DevTrainingBot::TopicService' }
   let(:slack_service) { instance_double 'DevTrainingBot::SlackService' }
 
+  describe '#open' do
+    it 'launches the browser with the document' do
+      expect(Launchy).to receive(:open).with(DevTrainingBot::GoogleDriveService::DOC_URL)
+      subject.open
+    end
+  end
+
   describe '#publish' do
     before do
       allow(DevTrainingBot::TopicService).to receive(:new).and_return(topic_service)

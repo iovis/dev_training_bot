@@ -1,9 +1,15 @@
+require 'launchy'
 require 'thor'
 
 module DevTrainingBot
   class Cli < Thor
     def self.exit_on_failure?
       true
+    end
+
+    desc 'open', 'Open Dev Training document in your browser'
+    def open
+      Launchy.open GoogleDriveService::DOC_URL
     end
 
     desc 'publish', "Send a poll to the #{ENV['SLACK_CHANNEL']} channel"
