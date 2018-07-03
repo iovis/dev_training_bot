@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dev_training_bot (1.0.3)
+    dev_training_bot (1.0.4)
       chronic (~> 0.10)
       google-api-client (~> 0.23)
       launchy (~> 2.4)
