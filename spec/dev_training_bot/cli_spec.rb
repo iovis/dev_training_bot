@@ -28,6 +28,7 @@ describe DevTrainingBot::Cli do
 
   describe '#publish' do
     before do
+      allow(DevTrainingBot::GoogleDriveService).to receive(:new).and_return(drive_service)
       allow(DevTrainingBot::TopicService).to receive(:new).and_return(topic_service)
       allow(DevTrainingBot::SlackService).to receive(:new).and_return(slack_service)
       allow(subject).to receive(:say)
