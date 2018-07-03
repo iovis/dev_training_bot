@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/dev_training_bot.svg)](https://badge.fury.io/rb/dev_training_bot) [![Build Status](https://travis-ci.org/iovis9/dev_training_bot.svg?branch=master)](https://travis-ci.org/iovis9/dev_training_bot)
+
 # DevTrainingBot
 
 List, publish or export the Dev Training topics (made for RubiconMD).
