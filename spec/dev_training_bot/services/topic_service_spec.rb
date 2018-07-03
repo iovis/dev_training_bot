@@ -1,6 +1,7 @@
 describe DevTrainingBot::TopicService do
   let(:file)       { StringIO.new(File.read('spec/support/dev_training.txt')) }
   let(:empty_file) { StringIO.new(File.read('spec/support/dev_training_empty.txt')) }
+  let(:full_file)  { StringIO.new(File.read('spec/support/dev_training_full.txt')) }
   let(:service)    { instance_double 'GoogleDriveService' }
   let(:topics) do
     convert_to_topics [
@@ -58,6 +59,14 @@ describe DevTrainingBot::TopicService do
       it 'returns an empty string' do
         allow(service).to receive(:export_file).and_return(empty_file)
         expect(subject.to_poll).to eq ''
+      end
+    end
+
+    context 'when there are more than 10 topics' do
+      it 'returns 10' do
+        allow(service).to receive(:export_file).and_return(full_file)
+        topic_list = subject.to_poll.split(/(?<=") (?=")/)
+        expect(topic_list.size).to eq 10
       end
     end
   end
