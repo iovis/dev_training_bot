@@ -32,8 +32,13 @@ module DevTrainingBot
     end
 
     desc 'publish', "Send a poll to the #{ENV['SLACK_CHANNEL']} channel"
+    method_option :exclude,
+                  aliases: '-e',
+                  type: :array,
+                  desc: 'Exclude authors from the final list'
     def publish
-      slack_service.create_poll(topic_service.to_poll)
+      topics = topic_service.to_poll(exclude: options[:exclude])
+      slack_service.create_poll(topics)
       slack_service.link_doc
       say 'Successfully published the poll!', :green
     end
