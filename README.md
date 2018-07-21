@@ -18,6 +18,7 @@ Generate a [token](https://api.slack.com/custom-integrations/legacy-tokens) for 
 Configure the following environment variables:
 ```sh
 CLIENT_SECRETS_PATH="$HOME/.client_secrets.json"
+CLIENT_TOKEN_PATH="$HOME/.token.yaml"
 FILE_ID=<Google Docs file id>
 SLACK_API_TOKEN=<your slack user token>
 SLACK_CHANNEL="#your_channel"

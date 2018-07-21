@@ -6,7 +6,7 @@ module DevTrainingBot
     OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'.freeze
     APPLICATION_NAME = 'Dev Training Bot'.freeze
     CLIENT_SECRETS_PATH = ENV['CLIENT_SECRETS_PATH'].freeze
-    CREDENTIALS_PATH = 'token.yaml'.freeze
+    CREDENTIALS_PATH = ENV['CLIENT_TOKEN_PATH'].freeze
     SCOPE = Google::Apis::DriveV3::AUTH_DRIVE_READONLY
     DOC_URL = "https://docs.google.com/document/d/#{ENV['FILE_ID']}".freeze
     FORMATS = {
