@@ -7,9 +7,9 @@ module DevTrainingBot
       @drive_service = drive_service
     end
 
-    def to_poll
+    def to_poll(exclude: [])
       return '' if empty?
-      "\"#{topics.first(10).join('" "')}\""
+      "\"#{topics.reject { |topic| topic.author.in?(exclude) }.first(10).join('" "')}\""
     end
 
     def content

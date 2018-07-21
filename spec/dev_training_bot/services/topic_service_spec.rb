@@ -1,8 +1,11 @@
 describe DevTrainingBot::TopicService do
+  let(:service) { instance_double 'GoogleDriveService' }
+  subject       { described_class.new(service) }
+
   let(:file)       { StringIO.new(File.read('spec/support/dev_training.txt')) }
   let(:empty_file) { StringIO.new(File.read('spec/support/dev_training_empty.txt')) }
   let(:full_file)  { StringIO.new(File.read('spec/support/dev_training_full.txt')) }
-  let(:service)    { instance_double 'GoogleDriveService' }
+
   let(:topics) do
     convert_to_topics [
       'Anthony: SAML',
@@ -16,7 +19,9 @@ describe DevTrainingBot::TopicService do
     ]
   end
 
-  subject { described_class.new(service) }
+  let(:filtered_topics) do
+    '"Anthony: SAML" "Julio: CSI:RMD Reading error reports like a $BOSS" "Mo: Ansible"'
+  end
 
   describe '#topics' do
     it 'should return the list of topics in order' do
@@ -67,6 +72,13 @@ describe DevTrainingBot::TopicService do
         allow(service).to receive(:export_file).and_return(full_file)
         topic_list = subject.to_poll.split(/(?<=") (?=")/)
         expect(topic_list.size).to eq 10
+      end
+    end
+
+    context 'when given an author filter' do
+      it 'excludes it' do
+        allow(service).to receive(:export_file).and_return(file)
+        expect(subject.to_poll(exclude: ['David', 'Jimmi'])).to eq filtered_topics
       end
     end
   end
