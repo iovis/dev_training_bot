@@ -35,6 +35,7 @@ module DevTrainingBot
     method_option :exclude,
                   aliases: '-e',
                   type: :array,
+                  default: [],
                   desc: 'Exclude authors from the final list'
     def publish
       topics = topic_service.to_poll(exclude: options[:exclude])
