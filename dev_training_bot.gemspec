@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['david.marchante@rubiconmd.com']
 
   spec.summary       = 'Create a poll in Slack with the proposed topics'
-  spec.homepage      = 'https://github.com/iovis9/dev_training_bot'
+  spec.homepage      = 'https://github.com/iovis/dev_training_bot'
   spec.license       = 'MIT'
 
   # Specify which files should be added to the gem when it is released.

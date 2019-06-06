@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/dev_training_bot.svg)](https://badge.fury.io/rb/dev_training_bot) [![Build Status](https://travis-ci.org/iovis9/dev_training_bot.svg?branch=master)](https://travis-ci.org/iovis9/dev_training_bot)
+[![Gem Version](https://badge.fury.io/rb/dev_training_bot.svg)](https://badge.fury.io/rb/dev_training_bot) [![Build Status](https://travis-ci.org/iovis/dev_training_bot.svg?branch=master)](https://travis-ci.org/iovis/dev_training_bot)
 
 # DevTrainingBot
 
@@ -47,7 +47,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/iovis9/dev_training_bot.
+Bug reports and pull requests are welcome on GitHub at https://github.com/iovis/dev_training_bot.
 
 ## License
 
