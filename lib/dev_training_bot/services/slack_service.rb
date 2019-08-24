@@ -20,12 +20,12 @@ module DevTrainingBot
 
       @client.chat_command channel: ENV['SLACK_CHANNEL'],
                            command: '/poll',
-                           text: "\"@here Vote for the next dev learning! [#{next_friday}]\" #{topics}"
+                           text: "\"@engineering Vote for the next dev learning! [#{next_friday}]\" #{topics}"
     end
 
     def no_topics_available
       @client.chat_postMessage channel: ENV['SLACK_CHANNEL'],
-                               text: '<!here> Please propose your topics for the next Dev Learning!',
+                               text: '<!engineering> Please propose your topics for the next Dev Learning!',
                                as_user: true
     end
 
